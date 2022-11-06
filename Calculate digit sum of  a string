@@ -1,0 +1,30 @@
+class Solution {
+    public String digitSum(String s, int k) {
+        while(s.length()>k)
+        {
+            s=roundtrips(s,k);
+        }
+        return s;
+        
+    }
+    public static String roundtrips(String s,int k)
+    {
+        int j=0;
+        int i=0;
+        String ans="";
+        int sum=0;
+        for(;i<s.length();)
+        {
+            while(j<k && i<s.length())
+            {
+                sum=sum+(s.charAt(i)-'0');
+                j++;
+                i++;
+            }
+            ans=ans+sum;
+            j=0;
+            sum=0;
+        }
+        return ans;
+    }
+}
