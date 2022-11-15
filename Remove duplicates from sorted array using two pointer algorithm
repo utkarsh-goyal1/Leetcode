@@ -1,0 +1,14 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int writepointer=1;
+        for(int readpointer=1;readpointer<nums.length;readpointer++)
+        {
+            if(nums[readpointer]!=nums[readpointer-1])
+            {
+                nums[writepointer]=nums[readpointer];
+                writepointer++;
+            }
+        }
+        return writepointer;
+    }
+}
