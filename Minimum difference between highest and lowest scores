@@ -1,0 +1,14 @@
+class Solution {
+    public int minimumDifference(int[] nums, int k) {
+       Arrays.sort(nums);
+       int maxdiff=nums[nums.length-1]-nums[0];
+       int currdiff=nums[k-1]-nums[0];
+       maxdiff=currdiff;
+       for(int i=k;i<nums.length;i++)
+       {
+           currdiff=nums[i]-nums[i-k+1];
+           maxdiff=Math.min(maxdiff,currdiff);
+       }
+       return maxdiff;
+    }
+}
