@@ -1,0 +1,40 @@
+class Solution {
+    public char findTheDifference(String s, String t) {
+        // char []A=s.toCharArray();
+        // char []B=t.toCharArray();
+        // Arrays.sort(A);
+        // Arrays.sort(B);
+        // for(int i=0;i<A.length;i++)
+        // {
+        //     if(A[i]!=B[i])
+        //     {
+        //         return B[i];
+        //     }
+        // }
+        // return B[B.length-1];
+        HashMap<Character,Integer>d=new HashMap<>();
+        char[] A=s.toCharArray();
+        char []B=t.toCharArray();
+        for(char x:A)
+        {
+            d.put(x,d.getOrDefault(x,0)+1);
+        }
+        for(char i:B)
+        {
+            if(!d.containsKey(i))
+            {
+                return i;
+            }
+            else if(d.get(i)==0)
+            {
+                return i;
+            }
+            else
+            {
+                d.put(i,d.get(i)-1);
+            }
+        }
+        return 'n';
+        
+    }
+}
