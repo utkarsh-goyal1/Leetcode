@@ -1,0 +1,17 @@
+class Solution:
+    def numDifferentIntegers(self, s: str) -> int:
+        x=[]
+        sum=""
+        for i in range(0,len(s)-1):
+            if(s[i]>='0' and s[i]<='9'):
+                sum=sum+s[i]
+                if(s[i+1]>'9'):
+                    x.append(sum)
+                    sum=""
+        if(s[len(s)-1]>='0' and s[len(s)-1]<='9'):
+            x.append(sum+s[len(s)-1])
+        for i in range(len(x)):
+            x[i]=int(x[i])
+        x=list(set(x))
+        return len(x)
+            
